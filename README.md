@@ -73,6 +73,8 @@ A complete pipeline for speech recognition and speaker diarization using Whisper
 
 ### Command Line Interface
 
+TODO: add instructions on audio extraction
+
 Process an audio file:
 ```bash
 uv run speech-pipeline process input.wav --output output.srt
