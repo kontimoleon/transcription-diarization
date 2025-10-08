@@ -28,6 +28,7 @@ def cli(verbose: bool, quiet: bool) -> None:
     elif quiet:
         logging.getLogger().setLevel(logging.WARNING)
 
+# TODO: adjust argument to switch from single file to directory
 
 @cli.command()
 @click.argument('input_file', type=click.Path(exists=True, path_type=Path))
@@ -173,6 +174,8 @@ def setup() -> None:
     """Setup guide for first-time users."""
     click.echo("🚀 Speech Pipeline Setup Guide")
     click.echo("=" * 40)
+
+    # TODO: Add instructions for audio extraction
     
     click.echo("\n1. Sync dependencies (creates .venv automatically):")
     click.echo("   uv sync")
