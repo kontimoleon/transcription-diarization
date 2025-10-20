@@ -1,4 +1,4 @@
-name: SpeakerDiarization
+name: transcription-diarization
 channels:
   - defaults
 dependencies:
