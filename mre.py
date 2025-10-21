@@ -33,9 +33,8 @@ def setup_logging(file_name):
 
     logging.info(f"Logging initialized. Writing logs to {log_filename}")
 
-def whisper_paradigm(input_audio):
+def whisper_paradigm(input_file):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    input_file = os.path.join(INPUT_DIR, input_audio)
     if not os.path.isfile(input_file):
         logging.error(f"Input file not found: {input_file}")
         return
@@ -48,7 +47,8 @@ def whisper_paradigm(input_audio):
     text = result.get("text", "")
     logging.info(f"Successfully transcribed {input_file}")
 
-    output_file = os.path.join(OUTPUT_DIR, input_audio+"output.txt")
+
+    output_file = os.path.join(OUTPUT_DIR, input_file.split('/')[-1]+"output.txt")
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(text + "\n")
     logging.info(f"Transcript written to {output_file}")
