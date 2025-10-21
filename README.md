@@ -2,12 +2,15 @@
 
 ## Instalation Guide
 
-1. Mount project. Video folder must be called `video-interviews`.
-2. Create a new virtual environment  
-`python -m venv .venv`
-3. Activate the virtual environment  
+1. Mount project. Video folder must be called `video-interviews`. TODO: how?  
+2. Clone the repo and navigate to the repo directory
+3. Create a new virtual environment  
+`python3 -m venv .venv`
+4. Activate the virtual environment  
 `source .venv/bin/activate`
-4. Install required packages  
+5. Install required packages  
 `pip install -r requirements.txt`
-5. Install ffmpeg distribution   
+6. Install CUDA 13.0-compatible PyTorch Build
+`pip3 install torch --index-url https://download.pytorch.org/whl/cu130`
+7. Install ffmpeg distribution TODO: where?   
 `sudo apt update && sudo apt install ffmpeg`
