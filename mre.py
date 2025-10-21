@@ -33,9 +33,9 @@ def setup_logging(file_name):
 
     logging.info(f"Logging initialized. Writing logs to {log_filename}")
 
-def whisper_paradigm():
+def whisper_paradigm(input_audio):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    input_file = os.path.join(INPUT_DIR, "incoming.mp3")
+    input_file = os.path.join(INPUT_DIR, input_audio)
     if not os.path.isfile(input_file):
         logging.error(f"Input file not found: {input_file}")
         return
@@ -45,14 +45,21 @@ def whisper_paradigm():
     logging.info(f"Initialized pipeline with model 'whisper-{MODEL_SIZE}'.")
 
     result = model.transcribe(input_file)
+    text = result.get("text", "")
     logging.info(f"Successfully transcribed {input_file}")
 
-    output_file = os.path.join(OUTPUT_DIR, "output.txt")
+    output_file = os.path.join(OUTPUT_DIR, input_audio+"output.txt")
     with open(output_file, "w", encoding="utf-8") as f:
-        f.write(result.get("text", ""))
+        f.write(text + "\n")
     logging.info(f"Transcript written to {output_file}")
 
 
 if __name__ == "__main__":
     setup_logging(file_name="mre")
-    whisper_paradigm()
+    audios = [
+        os.path.join(INPUT_DIR, f)
+        for f in os.listdir(INPUT_DIR)
+    ]
+
+    for audio in audios:
+        whisper_paradigm(audio)
