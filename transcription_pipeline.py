@@ -1,4 +1,6 @@
-# transcription_pipeline.py
+"""
+TODO: documentation
+"""
 import os
 import math
 import ffmpeg
@@ -9,7 +11,7 @@ from settings import INPUT_DIR, OUTPUT_DIR, LOG_DIR, LOG_LEVEL, MODEL_SIZE
 
 
 # Logging Setup
-def setup_logging(file_name="main_final"):
+def setup_logging(file_name):
     """
     Configures logging for the application.
     Logs are written both to a file in LOG_DIR and to the console.
