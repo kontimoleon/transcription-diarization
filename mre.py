@@ -48,7 +48,7 @@ def whisper_paradigm(input_file):
     logging.info(f"Successfully transcribed {input_file}")
 
 
-    output_file = os.path.join(OUTPUT_DIR, input_file.split('/')[-1].split('.')[0]+"output.txt")
+    output_file = os.path.join(OUTPUT_DIR, input_file.split('/')[-1].split('.')[0]+"_transcript.txt")
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(text + "\n")
     logging.info(f"Transcript written to {output_file}")
