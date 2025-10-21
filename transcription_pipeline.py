@@ -3,7 +3,6 @@ import os
 import math
 import ffmpeg
 import whisper
-import pandas as pd
 import logging
 from datetime import datetime
 from settings import INPUT_DIR, OUTPUT_DIR, LOG_DIR, LOG_LEVEL, MODEL_SIZE
