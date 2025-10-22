@@ -12,5 +12,5 @@
 `pip install -r requirements.txt`
 6. Install CUDA 13.0-compatible PyTorch Build
 `pip3 install torch --index-url https://download.pytorch.org/whl/cu130`
-7. Install ffmpeg distribution TODO: where?   
+7. Install ffmpeg distribution (Note: sudo not available to all users)
 `sudo apt update && sudo apt install ffmpeg`

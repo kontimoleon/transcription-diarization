@@ -3,6 +3,8 @@ mre.py: Minimal reproducible example to test the transcription pipeline.
 
 """
 import os
+import time
+import torch
 import whisper
 import logging
 from datetime import datetime
@@ -51,10 +53,15 @@ def transcription_paradigm(model, input_file):
 
 
 if __name__ == "__main__":
+    start = time.time()
+
     setup_logging(file_name="mre")
 
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    logging.info(f"Device set to: {device}")
+
     logging.info(f"Loading whisper model '{MODEL_SIZE}'")
-    model = whisper.load_model(MODEL_SIZE)
+    model = whisper.load_model(MODEL_SIZE, device)
     logging.info(f"Initialized pipeline with model 'whisper-{MODEL_SIZE}'.")
 
     audios = [
@@ -64,3 +71,6 @@ if __name__ == "__main__":
 
     for audio in audios:
         transcription_paradigm(model, audio)
+    end = time.time()
+    elapsed_time = (end - start)/60  # calculate in minutes
+    logging.info(f"Run completed after {elapsed_time:.2f} minutes.")
