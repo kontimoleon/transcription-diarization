@@ -58,7 +58,7 @@ if __name__ == "__main__":
 
     setup_logging(file_name="mre")
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     logging.info(f"Device set to: {device}")
 
     logging.info(f"Loading faster-whisper model '{MODEL_SIZE}'")
