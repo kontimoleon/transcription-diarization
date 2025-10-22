@@ -5,9 +5,10 @@ mre.py: Minimal reproducible example to test the transcription pipeline.
 import os
 import time
 import torch
-import whisper
 import logging
+
 from datetime import datetime
+from faster_whisper import WhisperModel
 from settings import INPUT_DIR, OUTPUT_DIR, LOG_DIR, LOG_LEVEL, MODEL_SIZE
 
 
@@ -41,7 +42,7 @@ def transcription_paradigm(model, input_file):
         logging.error(f"Input file not found: {input_file}")
         return
 
-    result = model.transcribe(input_file)
+    result = model.transcribe(input_file, beam_size=5)
     text = result.get("text", "")
     logging.info(f"Successfully transcribed {input_file}")
 
@@ -60,9 +61,9 @@ if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logging.info(f"Device set to: {device}")
 
-    logging.info(f"Loading whisper model '{MODEL_SIZE}'")
-    model = whisper.load_model(MODEL_SIZE, device)
-    logging.info(f"Initialized pipeline with model 'whisper-{MODEL_SIZE}'.")
+    logging.info(f"Loading faster-whisper model '{MODEL_SIZE}'")
+    model = WhisperModel(MODEL_SIZE, device)
+    logging.info(f"Initialized pipeline with model 'faster-whisper-{MODEL_SIZE}'.")
 
     audios = [
         os.path.join(INPUT_DIR, f)
