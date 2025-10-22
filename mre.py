@@ -42,8 +42,10 @@ def transcription_paradigm(model, input_file):
         logging.error(f"Input file not found: {input_file}")
         return
 
-    result = model.transcribe(input_file, beam_size=5)
-    text = result.get("text", "")
+    # result = model.transcribe(input_file)
+    # text = result.get("text", "")
+    segments, info = model.transcribe(input_file, beam_size=5)
+    text = " ".join(s.text.strip() for s in segments)
     logging.info(f"Successfully transcribed {input_file}")
 
 
