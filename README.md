@@ -2,7 +2,7 @@
 
 ## Instalation Guide
 
-1. Mount project. Video folder must be called `interview-videos`. TODO: how?  
+1. Transfer video/audio files. 
 2. Clone the repo and navigate to the repo directory
 3. Create a new virtual environment  
 `python3 -m venv .venv`
@@ -10,10 +10,7 @@
 `source .venv/bin/activate`
 5. Install required packages  
 `pip install -r requirements.txt`
-6. Install CUDA 13.0-compatible PyTorch Build for openai-whisper.
-`pip3 install torch --index-url https://download.pytorch.org/whl/cu130`  
-OR  
-Install cuBLAS and cuDNN for faster-whisper (only for Linux!)
+6. Install cuBLAS and cuDNN for faster-whisper (only for Linux!)
     ```
     pip install nvidia-cublas-cu12 nvidia-cudnn-cu12==9.*
     export LD_LIBRARY_PATH="$(
@@ -25,7 +22,8 @@ Install cuBLAS and cuDNN for faster-whisper (only for Linux!)
         PY
         ):$LD_LIBRARY_PATH"
     ```
-7. Extract audio from video  
-`audio_extraction.ps1`
+
+7. Extract audio if your input is videos (you might need to adjust the input/output directories in the bash script). Adjust `INPUT_DIR` and `OUTPUT_DIR` in `settings.py` accordingly.
+`extract_audio.sh`
 8. Run the transcription pipeline  
 `python3 transcription_pipeline.py`
