@@ -1,5 +1,5 @@
 # Input directory (change as needed)
-$inputDir = ".\interview-videos"  # TBD (point to the NAS drive?)
+$inputDir = ".\interview-videos"
 
 # Output directory (create it if it doesn't exist)
 $outputDir = Join-Path $inputDir "extracted-audio-wav"
