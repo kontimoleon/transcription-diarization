@@ -1,6 +1,6 @@
 # settings.py
-INPUT_DIR = "./interview-videos"
-OUTPUT_DIR = "./interview-transcripts"
+INPUT_DIR = "./input-videos"
+OUTPUT_DIR = "./output-transcripts"
 LOG_DIR = "./logs"
 LOG_LEVEL = "INFO"
 MODEL_SIZE = "large-v3"
