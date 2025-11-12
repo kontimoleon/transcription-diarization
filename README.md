@@ -23,7 +23,9 @@
         ):$LD_LIBRARY_PATH"
     ```
 
-7. Extract audio if your input is videos (you might need to adjust the input/output directories in the bash script). Adjust `INPUT_DIR` and `OUTPUT_DIR` in `settings.py` accordingly.
-`extract_audio.sh`
+7. Extract audio if your input is in video format (you might need to adjust the input/output directories in the bash script).
+    - Make the script executable: `chmod +x extract_audio.sh`
+    - Run audio extraction: `extract_audio.sh`
+    - Adjust `INPUT_DIR` and `OUTPUT_DIR` in `settings.py` accordingly.
 8. Run the transcription pipeline  
 `python3 transcription_pipeline.py`
