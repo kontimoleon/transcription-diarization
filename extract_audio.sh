@@ -4,7 +4,7 @@
 inputDir="./interview-videos"
 
 # Output directory
-outputDir="$inputDir/extracted-audio-wav"
+outputDir="./extracted-audio"
 # Create output directory if it doesn't exist
 mkdir -p "$outputDir"
 
