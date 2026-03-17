@@ -23,6 +23,15 @@
         ):$LD_LIBRARY_PATH"
     ```
 
+    ```
+    export LD_LIBRARY_PATH="$(
+        .venv/bin/python - <<'PY'
+        import os, nvidia.cublas, nvidia.cudnn
+        print(os.path.join(nvidia.cublas.__path__[0], 'lib') + ':' + os.path.join(nvidia.cudnn.__path__[0], 'lib'))
+        PY
+        ):$LD_LIBRARY_PATH"
+    ```
+
 7. Extract audio if your input is in video format (you might need to adjust the input/output directories in the bash script).
     - Make the script executable: `chmod +x extract_audio.sh`
     - Run audio extraction: `extract_audio.sh`
