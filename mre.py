@@ -64,7 +64,7 @@ if __name__ == "__main__":
     logging.info(f"Device set to: {device}")
 
     logging.info(f"Loading faster-whisper model '{MODEL_SIZE}'")
-    model = WhisperModel(MODEL_SIZE, device)
+    model = WhisperModel(MODEL_SIZE, device, compute_type="float16")
     logging.info(f"Initialized pipeline with model 'faster-whisper-{MODEL_SIZE}'.")
 
     audios = [
