@@ -12,3 +12,4 @@ __pycache__/
 *.mkv
 .ipynb_checkpoints
 scrap.ipynb
+.vscode/settings.json
